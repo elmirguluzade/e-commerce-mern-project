@@ -1,0 +1,131 @@
+{
+  "products": [{
+      "availableSizes": ["S", "L", "XL", "XXL"],
+      "currencyId": "USD",
+      "description": "14/15 s/nº",
+      "isFreeShipping": true,
+      "price": 10.9,
+      "title": "Cropped Stay Groovy off white"
+    },
+    {
+      "availableSizes": ["S", "ML", "L"],
+      "currencyId": "USD",
+      "description": "",
+      "isFreeShipping": true,
+      "price": 13.25,
+      "title": "Basic Cactus White T-shirt"
+    },
+    {
+      "availableSizes": ["XL"],
+      "currencyId": "USD",
+      "description": "14/15 s/nº - Jogador",
+      "isFreeShipping": false,
+      "price": 25.9,
+      "title": "Skater Black Sweatshirt"
+    },
+    {
+      "availableSizes": ["M", "ML"],
+      "currencyId": "USD",
+      "description": "",
+      "isFreeShipping": true,
+      "price": 29.45,
+      "title": "Black Tule Oversized"
+    },
+    {
+      "availableSizes": ["S", "XS"],
+      "currencyId": "USD",
+      "description": "4 MSL",
+      "isFreeShipping": true,
+      "price": 10.9,
+      "title": "Black Batman T-shirt"
+    },
+    {
+      "availableSizes": ["S", "L", "XL"],
+      "currencyId": "USD",
+      "description": "GPX Poly 1",
+      "isFreeShipping": true,
+      "price": 9,
+      "title": "Blue T-Shirt"
+    },
+    {
+      "availableSizes": ["S", "L", "XL", "XXL"],
+      "currencyId": "USD",
+      "description": "Treino 2014",
+      "isFreeShipping": true,
+      "price": 14,
+      "title": "Loose Black T-shirt"
+    },
+    {
+      "availableSizes": ["S", "L", "XL", "XXL"],
+      "currencyId": "USD",
+      "description": "14/15 s/nº",
+      "isFreeShipping": true,
+      "price": 10.9,
+      "title": "Ringer Hall Pass"
+    },
+    {
+      "availableSizes": ["S", "L"],
+      "currencyId": "USD",
+      "description": "14/15 s/nº",
+      "isFreeShipping": true,
+      "price": 14.9,
+      "title": "Grey T-shirt"
+    },
+    {
+      "availableSizes": ["S", "L"],
+      "currencyId": "USD",
+      "description": "2014 s/nº",
+      "isFreeShipping": true,
+      "price": 14.9,
+      "title": "Black T-shirt with white stripes"
+    },
+    {
+      "availableSizes": ["L", "XL"],
+      "currencyId": "USD",
+      "description": "14/15 + Camiseta 1º Mundial",
+      "isFreeShipping": false,
+      "price": 10.9,
+      "title": "Turtles Ninja T-shirt"
+    },
+    {
+      "availableSizes": ["XL", "XXL"],
+      "currencyId": "USD",
+      "description": "T-shirt 13/14",
+      "isFreeShipping": true,
+      "price": 49.9,
+      "title": "Slim black T-shirt"
+    },
+    {
+      "availableSizes": ["S"],
+      "currencyId": "USD",
+      "description": "1977 Infantil",
+      "isFreeShipping": true,
+      "price": 22.5,
+      "title": "Blue Sweatshirt"
+    },
+    {
+      "availableSizes": ["XL"],
+      "currencyId": "USD",
+      "description": "",
+      "isFreeShipping": false,
+      "price": 18.7,
+      "title": "White T-shirt Gucci"
+    },
+    {
+      "availableSizes": ["L", "XL"],
+      "currencyId": "USD",
+      "description": "",
+      "isFreeShipping": true,
+      "price": 134.9,
+      "title": "Tropical Wine T-shirt"
+    },
+    {
+      "availableSizes": ["L", "XL"],
+      "currencyId": "USD",
+      "description": "",
+      "isFreeShipping": true,
+      "price": 49,
+      "title": "Marine Blue T-shirt"
+    }
+  ]
+}

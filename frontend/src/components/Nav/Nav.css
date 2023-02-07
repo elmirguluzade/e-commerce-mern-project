@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --mainColor: rgb(36, 29, 29)
+}
+
+header {
+    padding: 10px 2%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    color: var(--mainColor)
+}
+
+.searchBox {
+    position: relative;
+}
+
+.searchBox input {
+    width: 300px;
+    height: 100%;
+    padding-left: 35px;
+    border: none;
+    background-color: rgb(240, 240, 240);
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.credentials {
+    display: flex;
+}
+
+.searchBox i {
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    color: var(--mainColor);
+    transform: translateY(-50%);
+    cursor: pointer;
+    padding-left: 5px;
+}
+
+.cart {
+    padding: 9px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.cart span {
+    padding: 0 5px;
+}
+
+.profile {
+    cursor: pointer;
+    padding: 9px 15px;
+}
+
+.profile:hover {
+    color: rgb(55, 55, 55);
+}
+
+.fixed {
+    background-color: #fff;
+    box-shadow: 0 2px 15px 2px gray;
+}
+
+.cart-details {
+    width: 300px;
+    position: absolute;
+    background-color: white;
+    top: 50px;
+    right: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    padding: 10px;
+    max-height: 400px;
+    overflow: auto;
+}
+
+.cart-details::-webkit-scrollbar{
+    display: none;
+}
+
+.cart-title {
+    font-weight: 600;
+}
+
+.item-title p {
+    font-weight: 700;
+    margin-top: 10px;
+    font-size: 14px;
+    color: rgb(108, 108, 108)
+}
+
+.item-details {
+    display: flex;
+    padding: 10px 0;
+}
+
+.item-spc {
+    padding: 0 10px;
+    margin-top: 5px;
+}
+
+.item-spc p {
+    font-weight: 700;
+}
+
+.item-spc span {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.item-img img {
+    width: 60px;
+}
+
+.total-price {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.total-price p {
+    font-weight: 600;
+}
+
+.total-price p:last-child{
+    font-weight: 700;
+}
+
+.submitCart {
+    width: 100%;
+    border: none;
+    padding: 12px;
+    background-color: #313131;
+    color: white;
+    cursor: pointer
+}
+
+.submitCart:hover {
+    background-color: #030303;
+}
+
+@media (max-width: 576px) {
+    .searchBox input {
+        width: 250px;
+        height: 100%;
+        padding-left: 35px;
+        border: none;
+        background-color: rgb(240, 240, 240);
+        border-radius: 8px;
+        font-size: 16px;
+    }
+}

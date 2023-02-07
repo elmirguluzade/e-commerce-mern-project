@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 85%;
+  padding: 0 3%;
+}
+
+.dflex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product {
+  width: 200px;
+  margin: 0 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.freeShipping {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: black;
+  padding: 3px;
+  color: white;
+  font-size: 10px;
+  border-radius: 0 8px 0 0;
+}
+
+.product-photo {
+  position: relative;
+}
+
+.product-photo img {
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px 8px 0 0;
+}
+
+.product-details {
+  padding: 0 15px;
+}
+
+.title {
+  width: 80%;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.priceProduct {
+  text-align: center;
+  margin: 10px 0;
+  font-weight: 500;
+  color: red
+}
+
+.product button {
+  width: 100%;
+  margin-top: 15px;
+  background-color: rgb(43, 42, 42);
+  border: 1px solid white;
+  color: white;
+  padding: 12px 15px;
+  cursor: pointer;
+  font-weight: 400;
+  border-radius: 0px 0px 8px 8px;
+}
+
+.product button:hover {
+  background-color: black;
+}

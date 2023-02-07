@@ -1,10 +1,18 @@
-import './App.css';
+import './App.css'
+import Nav from './components/Nav/Nav'
+import Product from './components/Product/Product'
+import Category from './components/Category/Category'
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      
-    </div>
+    <>
+      <Nav />
+      <div className="d-flex pos">
+        <Category />
+        <Product />
+      </div>
+    </>
   );
 }
 
