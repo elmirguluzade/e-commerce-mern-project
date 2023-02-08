@@ -98,11 +98,17 @@ nav {
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);
 }
 
+.item-title {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
 .item-title p {
     font-weight: 700;
     margin-top: 10px;
-    font-size: 14px;
-    color: rgb(108, 108, 108)
+    font-size: 15px;
+    color: rgb(71, 71, 71)
 }
 
 .item-details {
@@ -153,6 +159,15 @@ nav {
 
 .submitCart:hover {
     background-color: #030303;
+}
+
+.remove {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: rgb(220, 0, 0);
 }
 
 @media (max-width: 576px) {

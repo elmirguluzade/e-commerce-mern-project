@@ -5,12 +5,19 @@
   box-sizing: border-box;
 }
 
-.products {
-  display: flex;
-  flex-wrap: wrap;
+.products-section {
   margin: 0 auto;
   width: 85%;
   padding: 0 3%;
+}
+
+.products{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.productCount{
+  margin: 20px;
 }
 
 .dflex {

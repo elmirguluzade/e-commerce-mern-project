@@ -4,7 +4,7 @@ const Context = React.createContext();
 
 const reducer = (state, action) => {
     switch (action.type) {
-        case "ADD_PRODUCT":
+        case "ADD_CART":
             let newItem = state.cart;
             let addedProduct = state.cart.find(product => { return product._id === action.payload._id })
             if (addedProduct) {
@@ -19,10 +19,20 @@ const reducer = (state, action) => {
             return { items: [...action.payload] }
         case "FILTER_SEARCH":
             return { items: [...action.payload] }
-        case "LOADING_TRUE":
+        case "LOADING_STATE":
             return { isLoading: action.payload }
-        case "LOADING_FALSE":
-            return { isLoading: action.payload }
+        case "SEARCH_PRODUCTS":
+            return { items: [...action.payload] }
+        case "REMOVE_FROM_CART":
+            const cart = [...state.cart]
+            const index = cart.indexOf(action.payload)
+            cart[index].quantity > 1 ? cart[index].quantity -= 1 : cart.splice(index, 1);
+            if (cart.length === 0) return { cart, arrowDir: true }
+            else return { cart }
+        case "SEARCH_TEXT":
+            return { currentValue: action.payload }
+        case "ARROW_DIRECTION":
+            return { arrowDir: action.payload }
 
         default: return state
     }
@@ -33,7 +43,7 @@ const reducer = (state, action) => {
 export class ContextProvider extends Component {
 
     state = {
-        cart: [], items: [], isLoading: false, dispatch: (action) => {
+        cart: [], items: [], isLoading: false, currentValue: '', arrowDir: true, dispatch: (action) => {
             this.setState(state => reducer(state, action))
         }
     }

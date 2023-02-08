@@ -1,40 +1,45 @@
-import React, { useState, useContext } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useContext, useRef } from 'react'
 import Context from '../../context'
-import './Nav.css'
 import photo from '../../assets/product.webp'
+import './Nav.css'
 
 function Nav() {
-
-  const [arrowDir, setArrowDir] = useState(true)
+  // !Hooks
   const [colorChange, setColorChange] = useState(false)
   const cartContext = useContext(Context)
-  const [currentValue, setcurrentValue] = useState('')
-  const { cart } = cartContext
-  
+  const wrapperRef = useRef()
+  // !Context
+  const { cart, dispatch, currentValue, arrowDir } = cartContext
+  // !Navbar Fixed
   const changeNavbarColor = () => {
     window.scrollY > 10 ? setColorChange(true) : setColorChange(false)
   }
   window.addEventListener('scroll', changeNavbarColor)
-
+  // !Clicked Outside Cart
+  const detectClick = (e) => {
+    if (wrapperRef.current && !wrapperRef.current.contains(e.target)) {
+      dispatch({ type: "ARROW_DIRECTION", payload: !arrowDir })
+    }
+  }
+  window.addEventListener('mousedown', detectClick)
+  // !Cart Total Price
   const totalPrice = () => {
     let sum = 0;
-    cart.forEach(element => {
-      if (element.quantity) {
-        sum += element.quantity * element.price
-      } else {
-        sum += element.price
-      }
-    });
+    cart.forEach(element => element.quantity ? sum += element.quantity * element.price : sum += element.price);
     return (Math.round(sum * 10) / 10).toString();
   }
+  // !Remove Cart Item
+  const removeCart = (item) => {
+    dispatch({ type: "REMOVE_FROM_CART", payload: item })
+  }
+  // !Search 
+  const searchText = (e) => {
+    dispatch({ type: "SEARCH_TEXT", payload: e.target.value })
+  }
 
-  const filteredItems = (event) => {
-    setcurrentValue(event.target.value)
-    // const allProducts = [...items];
-    // const filteredProducts = allProducts.filter((product) => 
-    //    product.title.toLowerCase().includes(currentValue.toLowerCase())
-    // )
-    // dispatch({ type: "SEARCH_PRODUCTS", payload: filteredProducts})
+  const setArrowDir = () => {
+    dispatch({ type: "ARROW_DIRECTION", payload: !arrowDir })
   }
 
   return (
@@ -45,11 +50,11 @@ function Nav() {
         </div>
         <div className="searchBox">
           <i className="fa-solid fa-magnifying-glass"></i>
-          <input type="text" placeholder='Search' value={currentValue} onChange={filteredItems} />
+          <input type="text" placeholder='Search' value={currentValue} onChange={(e) => searchText(e)} />
         </div>
         <div className="credentials">
           <div className="cart"
-            onClick={() => setArrowDir(!arrowDir)}>
+            onClick={setArrowDir}>
             <i className="fa-solid fa-cart-shopping"></i>
             <span>Cart {cart.length > 0 ? cart.length : ''}</span>
             {
@@ -58,13 +63,16 @@ function Nav() {
             }
           </div>
           {
-            !arrowDir ? <div className="cart-details">
+            !arrowDir ? <div className="cart-details" ref={wrapperRef}>
               <p className='cart-title'>Items in your cart</p>
               <div className="items">
                 {
                   cart.map((product) => (
                     <div className="item" key={product._id}>
-                      <div className="item-title"><p>{product.title}</p></div>
+                      <div className="item-title">
+                        <p>{product.title}</p>
+                        <i className="fa-solid fa-xmark remove" onClick={() => removeCart(product)}></i>
+                      </div>
                       <div className="item-details">
                         <div className="item-img">
                           <img src={photo} alt="product" />
