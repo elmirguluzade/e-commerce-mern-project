@@ -1,18 +1,23 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors')
+const path = require('path')
 require('dotenv').config({ path: './config.env' })
 const morgan = require('morgan')
-
 const productRouter = require('./routes/productRouter')
 
 const app = express();
+app.use(express.static(path.join(__dirname, '..', 'frontend', 'public')))
 app.use(express.json())
+app.use(cors())
 app.use(morgan('dev'))
+
+
 
 //!Routes
 app.use('/product', productRouter)
 
-app.use((req, res, next) => {
+app.use((req, res) => {
     res.json({
         success: false,
         message: `${req.originalUrl} doesn't exist`

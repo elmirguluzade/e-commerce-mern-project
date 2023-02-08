@@ -10,7 +10,7 @@ function Nav() {
   const cartContext = useContext(Context)
   const [currentValue, setcurrentValue] = useState('')
   const { cart } = cartContext
-
+  
   const changeNavbarColor = () => {
     window.scrollY > 10 ? setColorChange(true) : setColorChange(false)
   }
@@ -63,7 +63,7 @@ function Nav() {
               <div className="items">
                 {
                   cart.map((product) => (
-                    <div className="item">
+                    <div className="item" key={product._id}>
                       <div className="item-title"><p>{product.title}</p></div>
                       <div className="item-details">
                         <div className="item-img">

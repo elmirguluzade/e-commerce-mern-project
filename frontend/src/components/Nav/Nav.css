@@ -84,16 +84,18 @@ nav {
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 3px;
     padding: 10px;
-    max-height: 400px;
+    max-height: 450px;
     overflow: auto;
 }
 
-.cart-details::-webkit-scrollbar{
+.cart-details::-webkit-scrollbar {
     display: none;
 }
 
 .cart-title {
-    font-weight: 600;
+    font-weight: 700;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
 }
 
 .item-title p {
@@ -136,7 +138,7 @@ nav {
     font-weight: 600;
 }
 
-.total-price p:last-child{
+.total-price p:last-child {
     font-weight: 700;
 }
 

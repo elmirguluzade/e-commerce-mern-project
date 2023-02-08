@@ -3,7 +3,6 @@ import Nav from './components/Nav/Nav'
 import Product from './components/Product/Product'
 import Category from './components/Category/Category'
 
-
 const App = () => {
   return (
     <>

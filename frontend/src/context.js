@@ -6,7 +6,7 @@ const reducer = (state, action) => {
     switch (action.type) {
         case "ADD_PRODUCT":
             let newItem = state.cart;
-            let addedProduct = state.cart.find(product => { return product.id === action.payload.id })
+            let addedProduct = state.cart.find(product => { return product._id === action.payload._id })
             if (addedProduct) {
                 addedProduct.quantity += 1;
                 return { cart: [...state.cart] }
@@ -17,8 +17,12 @@ const reducer = (state, action) => {
             }
         case "GET_PRODUCTS":
             return { items: [...action.payload] }
-        case "SEARCH_PRODUCTS":
+        case "FILTER_SEARCH":
             return { items: [...action.payload] }
+        case "LOADING_TRUE":
+            return { isLoading: action.payload }
+        case "LOADING_FALSE":
+            return { isLoading: action.payload }
 
         default: return state
     }
@@ -29,7 +33,7 @@ const reducer = (state, action) => {
 export class ContextProvider extends Component {
 
     state = {
-        cart: [], items: [], dispatch: (action) => {
+        cart: [], items: [], isLoading: false, dispatch: (action) => {
             this.setState(state => reducer(state, action))
         }
     }

@@ -1,30 +1,26 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import './Product.css'
-import axios from 'axios';
 import productPhoto from '../../assets/product.webp'
 import Context from '../../context';
+// import LoadingSpinner from '../Loading/Loading';
 
 
 const Product = () => {
   const states = useContext(Context)
   const { items, dispatch } = states
-
-  useEffect(() => {
-    axios.get('http://localhost:3000/products')
-      .then(response => response.data)
-      .then(data => dispatch({ type: "GET_PRODUCTS", payload: data }))
-  })
-
+  console.log(items);
 
   const addProduct = (product) => {
     dispatch({ type: "ADD_PRODUCT", payload: product })
   }
 
+
+
   return (
     <div className='products'>
       {
         items.map((product) => (
-          <div className="product" key={product.id}>
+          <div className="product" key={product._id}>
             <div className="product-photo">
               {
                 product.isFreeShipping ? <p className='freeShipping'>Free Shipping</p> : ""
@@ -42,6 +38,7 @@ const Product = () => {
         ))
       }
     </div>
+
   )
 }
 
