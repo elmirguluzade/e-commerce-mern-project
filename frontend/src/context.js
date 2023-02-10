@@ -33,7 +33,10 @@ const reducer = (state, action) => {
             return { currentValue: action.payload }
         case "ARROW_DIRECTION":
             return { arrowDir: action.payload }
-
+        case "CURRENT_PAGE":
+            return { currentPage: action.payload }
+        case "FILTER_TOGGLE":
+            return { filter: action.payload }
         default: return state
     }
 }
@@ -43,7 +46,14 @@ const reducer = (state, action) => {
 export class ContextProvider extends Component {
 
     state = {
-        cart: [], items: [], isLoading: false, currentValue: '', arrowDir: true, dispatch: (action) => {
+        cart: [],
+        items: [],
+        isLoading: false,
+        currentValue: '',
+        arrowDir: true,
+        currentPage: 1,
+        filter: false,
+        dispatch: (action) => {
             this.setState(state => reducer(state, action))
         }
     }

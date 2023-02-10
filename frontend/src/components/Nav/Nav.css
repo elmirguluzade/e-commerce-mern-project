@@ -61,15 +61,6 @@ nav {
     padding: 0 5px;
 }
 
-.profile {
-    cursor: pointer;
-    padding: 9px 15px;
-}
-
-.profile:hover {
-    color: rgb(55, 55, 55);
-}
-
 .fixed {
     background-color: #fff;
     box-shadow: 0 2px 15px 2px gray;
@@ -171,6 +162,10 @@ nav {
 }
 
 @media (max-width: 576px) {
+    nav {
+        justify-content: space-around;
+    }
+
     .searchBox input {
         width: 250px;
         height: 100%;

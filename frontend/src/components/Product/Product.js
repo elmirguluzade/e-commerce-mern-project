@@ -3,16 +3,23 @@ import './Product.css'
 import productPhoto from '../../assets/product.webp'
 import Context from '../../context';
 import LoadingSpinner from '../Loading/Loading';
+import Pagination from '../Pagination/Pagination'
 
 
 const Product = () => {
   const states = useContext(Context)
-  const { items, dispatch, isLoading } = states
-
+  const { items, dispatch, isLoading, currentPage } = states
+  const postPerPage = 8;
+  console.log(currentPage);
   const addProduct = (product) => {
     dispatch({ type: "ADD_CART", payload: product })
     dispatch({ type: "ARROW_DIRECTION", payload: false })
   }
+
+  // !Pagination
+  const lastProductIndex = currentPage * postPerPage;
+  const firstProductIndex = lastProductIndex - postPerPage;
+  const allItems = items.slice(firstProductIndex, lastProductIndex)
 
   return (
     <div className='products-section'>
@@ -20,7 +27,7 @@ const Product = () => {
       <div className="products">
         {
           isLoading ? <LoadingSpinner /> :
-            items.map((product) => (
+          allItems.map((product) => (
               <div className="product" key={product._id}>
                 <div className="product-photo">
                   {
@@ -39,6 +46,7 @@ const Product = () => {
             ))
         }
       </div>
+      <Pagination products={items}/>
     </div>
   )
 }

@@ -9,6 +9,7 @@ function Nav() {
   const [colorChange, setColorChange] = useState(false)
   const cartContext = useContext(Context)
   const wrapperRef = useRef()
+  const cartRef = useRef()
   // !Context
   const { cart, dispatch, currentValue, arrowDir } = cartContext
   // !Navbar Fixed
@@ -19,7 +20,7 @@ function Nav() {
   // !Clicked Outside Cart
   const detectClick = (e) => {
     if (wrapperRef.current && !wrapperRef.current.contains(e.target)) {
-      dispatch({ type: "ARROW_DIRECTION", payload: !arrowDir })
+      if(!cartRef.current) dispatch({ type: "ARROW_DIRECTION", payload: !arrowDir })
     }
   }
   window.addEventListener('mousedown', detectClick)
@@ -37,7 +38,7 @@ function Nav() {
   const searchText = (e) => {
     dispatch({ type: "SEARCH_TEXT", payload: e.target.value })
   }
-
+  // !Cart Toggle
   const setArrowDir = () => {
     dispatch({ type: "ARROW_DIRECTION", payload: !arrowDir })
   }
@@ -54,7 +55,9 @@ function Nav() {
         </div>
         <div className="credentials">
           <div className="cart"
-            onClick={setArrowDir}>
+            onClick={setArrowDir}
+            ref={cartRef}
+            >
             <i className="fa-solid fa-cart-shopping"></i>
             <span>Cart {cart.length > 0 ? cart.length : ''}</span>
             {
@@ -94,10 +97,6 @@ function Nav() {
               <button className='submitCart'>PROCEED TO BAG</button>
             </div> : ''
           }
-
-          <div className="profile">
-            <i className="fa-solid fa-user"></i>
-          </div>
         </div>
       </nav>
     </header>
